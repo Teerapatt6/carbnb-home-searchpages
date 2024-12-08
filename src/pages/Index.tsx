@@ -2,6 +2,8 @@ import { MapPin, Car, Clock } from "lucide-react";
 import { SearchBar } from "@/components/SearchBar";
 import { ServiceCard } from "@/components/ServiceCard";
 import { ParkingSpotCard } from "@/components/ParkingSpotCard";
+import { ReviewCard } from "@/components/ReviewCard";
+import { FAQ } from "@/components/FAQ";
 import { useNavigate } from "react-router-dom";
 
 const Index = () => {
@@ -28,24 +30,42 @@ const Index = () => {
   const popularSpots = [
     {
       image: "/lovable-uploads/43fb1a7a-6d02-47a7-8d6a-cb0a5e916258.png",
-      title: "Downtown Parking",
-      location: "123 Main St, Downtown",
-      price: 15,
+      title: "Air Travel Parking",
+      location: "Muhammad 52 Alley, Khlong Tan Nuea",
+      price: 300,
+      rating: 4.9
+    },
+    {
+      image: "/lovable-uploads/43fb1a7a-6d02-47a7-8d6a-cb0a5e916258.png",
+      title: "Beach Parking",
+      location: "Phahonyothin 34, Senanikom, Chatuchak",
+      price: 500,
       rating: 4.8
     },
     {
       image: "/lovable-uploads/43fb1a7a-6d02-47a7-8d6a-cb0a5e916258.png",
-      title: "Airport Parking",
-      location: "456 Airport Rd",
-      price: 20,
-      rating: 4.5
+      title: "The iCon Parking",
+      location: "Phahonyothin 34, Senanikom, Chatuchak",
+      price: 400,
+      rating: 4.7
+    }
+  ];
+
+  const reviews = [
+    {
+      rating: 5,
+      review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius arcu nec tellus malesuada, et varius lorem elementum.",
+      author: "@Kimi"
     },
     {
-      image: "/lovable-uploads/43fb1a7a-6d02-47a7-8d6a-cb0a5e916258.png",
-      title: "Mall Parking",
-      location: "789 Shopping Ave",
-      price: 10,
-      rating: 4.7
+      rating: 4,
+      review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius arcu nec tellus malesuada, et varius lorem elementum.",
+      author: "@Alonso"
+    },
+    {
+      rating: 5,
+      review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius arcu nec tellus malesuada, et varius lorem elementum.",
+      author: "@Yuki"
     }
   ];
 
@@ -87,6 +107,26 @@ const Index = () => {
               />
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Client Reviews Section */}
+      <div className="max-w-7xl mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-center mb-4">Client's reviews</h2>
+        <p className="text-center text-gray-600 mb-12">
+          Find the perfect parking for your journey—join us on CarBNB today
+        </p>
+        <div className="grid md:grid-cols-3 gap-8">
+          {reviews.map((review, index) => (
+            <ReviewCard key={index} {...review} />
+          ))}
+        </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div className="bg-gray-50 py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <FAQ />
         </div>
       </div>
     </div>
